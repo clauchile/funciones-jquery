@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Jquery</title>
+    <style>
+        /* * {
+            outline: 1px dotted red;
+        } */
+
+        * button {
+
+            background-color: ghostwhite;
+            text-align: center;
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            width: 50%;
+            margin-bottom: 5;
+            border-radius: 12px;
+        }
+
+        /* .container {
+            background-color: rgb(41, 247, 41);
+        } */
+
+        #panel,
+        #flip {
+            padding: 5px;
+            text-align: center;
+            background-color: #3a8ee2;
+            border: solid 1px #c3c3c3;
+        }
+
+        #panel {
+            padding: 50px;
+            display: none;
+        }
+
+        #panel2 {
+            padding: 50px;
+            /* display: none; */
+        }
+
+        #panel2,
+        #flip2 {
+            padding: 5px;
+            text-align: center;
+            background-color: #3a8ee2;
+            border: solid 1px #c3c3c3;
+        }
+
+        #panel3 {
+            padding: 50px;
+            /* display: none; */
+        }
+
+        #panel3,
+        #flip3 {
+            padding: 5px;
+            text-align: center;
+            background-color: #3a8ee2;
+            border: solid 1px #c3c3c3;
+        }
+
+        .bg-green {
+            background-color: rgb(65, 235, 65);
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- .hide
+.show
+.toggle
+.slideDown
+.slideUp
+.slideToggle
+.fadeIn
+.fadeOut -->
+    <div class="container">
+        <div class="row justify-content-center bg-green">
+
+            <div class="col col-xs-12 col-sm-12 col-lg-4 text-center ">
+                <h3 id="titulo1">Ocultar Elementos</h3>
+                <button id="boton">Click me</button>
+            </div>
+
+            <div class="col col-xs-12 col-sm-12 col-lg-4 text-center">
+                <h3 id="titulo2">Mostrar elementos</h3>
+                <button id="boton2"> Click me</button>
+            </div>
+
+            <div class="col col-xs-12 col-sm-12 col-lg-4 text-center">
+                <h3 id="titulo3">Alternar entre ocultar y mostrar</h3>
+                <button class="mb-2" id="boton3"> Click me</button>
+            </div>
+
+        </div>
+        <div class="row flip justify-content-center mt-3 bg-primary">
+            <div class="col col-xs-12 col-sm-12 col-lg-4">
+                <div id="flip">Click para deslizar panel</div>
+                <div id="panel">¡Panel desliza abajo</div>
+            </div>
+            <div class="col col-xs-12 col-sm-12 col-lg-4">
+                <div id="flip2">Click para deslizar panel</div>
+                <div id="panel2">¡Panel deslizado arriba!</div>
+            </div>
+            <div class="col col-xs-12 col-sm-12 col-lg-4">
+                <div id="flip3">Click para deslizar panel</div>
+                <div id="panel3">¡Panel desliza arriba y abajo!</div>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-3">
+            <div class="col 6 bg-warning">
+                <div class="text-center">
+                    <h2 id="fadeOut"> haz click en este texto y se desvanecerá</h2>
+                </div>
+            </div>
+            <div class="col 6 bg-warning">
+                <div class="text-center">
+                    <button id="desvanecer" class="btn btn-bg-primary ">haz click</button>
+                    <h2 id="fadeIn"> Este texto apareció al hacer click en el botón</h2>
+                </div>
+            </div>
+        </div>
+        <!-- .addClass 
+            .before
+            .after 
+            .append
+            .html  
+            .attr  
+            .val   
+            .text -->
+        <div class="row bg-secondary justify-content-center mt-3">
+            <div class="col 4 bg-gray text-center">
+                <h2 id="agregaClase">Texto cambia de color</h2>
+                <button id="addClase" class="btn btn-success mb-3 p-0  text-center">Click <menu></menu></button>
+            </div>
+            <div class="col 4  text-center">
+                <h2 id="agregaClase2" class="text-warning">Texto cambia de color</h2>
+                <button id="addClase2" class=" btn btn-success mb-3 p-0 text-center">Click <menu></menu></button>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-3 bg-danger bg-gradient">
+            <div class="col text-center">
+                <h2 id="before">Se comió mi comida</h2>
+                <button id="beforeButton" class="btn btn-info">Click para saber quien fue</button>
+            </div>
+            <div class="col text-center">
+                <h2 id="after">No fue el gato fue...</h2>
+                <button id="afterButton" class="btn btn-info mb-3">Click para saber quien fue</button>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-3 bg-secondary bg-gradient">
+            <div class="col text-center">
+                <h2 id="append">Hola soy C</h2>
+                <button id="appendButton" class="btn btn-info">Click para saber el Nombre</button>
+            </div>
+            <div class="col text-center">
+                <h2 id="prepend">es Orellana</h2>
+                <button id="prependButton" class="btn btn-info mb-3">Click para saber quien fue</button>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-3 bg-secondary bg-gradient">
+            <div class="col text-center">
+                <h2 id="html">Si haces click en el botón no estaré por mucho tiemp</h2>
+                <button id="htmlButton" class="btn btn-info">Click para ver</button>
+            </div>
+            <!-- atributo -->
+            <div class="col text-center d-inline">
+                <div>
+                    <h2 class="atributo fs-5 mt-3">atributo1</h2>
+                    <h2 class="atributo fs-5">atributo2</h2>
+                    <h2 class="atributo fs-5">atributo3</h2>
+                </div>
+                <div class="col-3 d-inline">
+                    <p>Da Click a un parrafo</p>
+                </div>
+
+                <!-- <button id="attrButton" class="btn btn-info mb-3">Click para prueba de attr</button>
+            </div>
+            <!-- fin atributo -->
+            </div>
+
+            <div class="container bg-dark m-0 p-0 bg-gradient">
+
+                <div class="row justify-content-center col-6 mx-auto">
+                    <div class="col  text-center border border-2">
+                        <h2 id="text" class="text-white">Hola de nuevo</h2>
+                        <button id="textButton" class="btn btn-info mb-2">Click</button>
+                    </div>
+                </div>
+                <div class="col-6  mx-auto border border-2 mb-3">
+
+                    <h3 class="text-white">FORMULARIO Y USO DEL VAL()</h3>
+                    <input type="hidden" name="id" value="7">
+
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label text-white">Dirección de correo</label>
+                        <input type="email" placeholder="ingrese su email" class="form-control" id="exampleInputEmail1"
+                            aria-describedby="emailHelp">
+                        <div id="emailHelp" class="form-text">No compartiremos tu información.</div>
+                    </div>
+
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label text-white" for="exampleCheck1">De acuerdo</label>
+                    </div>
+
+                    <button id="boton1" type="button" class="btn btn-primary col col-3 mx-auto mb-3">Valor del
+                        EMAIL</button>
+
+                </div>
+            </div>
+            <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+        </div>
+    </div>
+
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $("#titulo2").hide();
+        $("#fadeIn").hide();
+
+        $('#boton').click(function () {
+            $("#titulo1").hide();
+        });
+
+        $('#boton2').click(function () {
+            $("#titulo2").show();
+        });
+
+        $('#boton3').click(function () {
+            $(titulo3).toggle();
+        });
+        $("#flip").click(function () {
+            $(panel).slideDown();
+        });
+        $("#flip2").click(function () {
+            $("#panel2").slideUp();
+        });
+        $("#flip3").click(function () {
+            $("#panel3").slideToggle();
+        });
+        $("#fadeOut").click(function () {
+            $("#fadeOut").fadeOut();
+        });
+        $("#desvanecer").click(function () {
+            $("#fadeIn").fadeIn("slow");
+        });
+        $("#addClase").click(function () {
+            $("#agregaClase").addClass("text-primary");
+            alert("se añadirá la clase text-color")
+        });
+        $("#addClase2").click(function () {
+
+            $("#agregaClase2").removeClass("text-warning").addClass("text-danger");
+            alert("Se removerá la clase 'text-color' y se añadirá nuevamente con otro color");
+        });
+
+        $("#beforeButton").click(function () {
+            $("#before").before("<h2>El gato</h2>");
+
+        });
+        $("#afterButton").click(function () {
+            $("#after").after("<h2>El perro</h2>");
+
+        });
+        $("#appendButton").click(function () {
+            $("#append").append("laudio");
+            alert("uso de append");
+
+        });
+        $("#prependButton").click(function () {
+            $("#prepend").prepend("Mi apellido ");
+            alert("uso de prepend");
+        });
+        $("#htmlButton").click(function () {
+            $("#html").html("<b>Yo permaneceré</b>");
+            alert("uso de html");
+        });
+        // $("#attrButton").click(function () {
+        //     $(".atributo h2").attr("font-size", "20");
+        //     // alert("uso de attr");
+        // });
+        $("#textButton").click(function () {
+            $("#text").text("¡Ya me voy!");
+            alert("text");
+        });
+
+        $(".atributo").click(function () {
+
+            $(this).attr("class", "fs-1")//OBTENGO
+            // $("#imagen").attr("src", "onepiece.jpg"); //ASIGNO un nuevo valor.
+
+        })
+        $("#exampleInputEmail1").val("BUEN DIA");
+
+        $("#boton1").click(function () {
+            let email = $("#exampleInputEmail1").val(); // obetemos el valor del email.
+            alert(email);
+        });
+
+    </script>
+
+</body>
+
+</html>
